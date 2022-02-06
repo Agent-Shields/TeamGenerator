@@ -1,5 +1,7 @@
 const inquirer = require('inquirer');
 const Employee = require('./lib/Employee');
+const generateHTML = require('./src/page-template')
+const generateEmployeeCard = require('./src/page-template')
 const fs = require('fs');
 
 
@@ -75,9 +77,9 @@ function promptUser() {
 };
 
 // TODO: Create function to write HTML file to dist
-const writeFile = fileContent => {
+const writeFile = (questionsData) => {
     return new Promise((resolve, reject) => {
-        fs.writeFile('./dist/index.html', fileContent, err => {
+        fs.writeFile('./dist/index.html', generateEmployeeCard(questionsData), err => {
         if (err) {
             reject(err);
             return;
@@ -92,4 +94,7 @@ const writeFile = fileContent => {
 }
 
 // starts asking questions upon node index.js invokation 
-promptUser();
+promptUser()
+    .then(writeFileResponse => {
+        return writeFile()
+    });
