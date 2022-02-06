@@ -76,6 +76,8 @@ function promptUser() {
     })
 };
 
+// var questionsAnswers = {};
+
 // TODO: Create function to write HTML file to dist
 const writeFile = (questionsData) => {
     return new Promise((resolve, reject) => {
