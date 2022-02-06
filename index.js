@@ -66,11 +66,11 @@ function promptUser() {
     return inquirer
     .prompt(questions)
     .then(questionsData => {
-        let employee = new Employee;
-        employee.getName(questionsData);
-        employee.getId(questionsData);
-        employee.getEmail(questionsData);
-        employee.getRole(questionsData);
+        let employee = new Employee(questionsData.employeeName, questionsData.employeeID, questionsData.employeeEmail, questionsData.employeeRole);
+        employee.getName();
+        employee.getID();
+        employee.getEmail();
+        employee.getRole();
     })
 };
 
