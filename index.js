@@ -97,6 +97,6 @@ const writeFile = (questionsData) => {
 
 // starts asking questions upon node index.js invokation 
 promptUser()
-    .then(writeFileResponse => {
-        return writeFile()
-    });
+    // .then(writeFileResponse => {
+    //     return writeFile()
+    // });
