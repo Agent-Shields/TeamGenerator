@@ -48,5 +48,8 @@ THEN I am prompted to enter the intern's name, ID, email, and school, and I am t
 WHEN I decide to finish building my team
 THEN I exit the application, and the HTML is generated
 
+## Challenges
+This challenge has really pushed me to connect all of the dots from previous modules and I was overwhelmed with the scope of what needed to be done. The biggest challenge for me is connecting the pages functionality to one another. The interaction between promise objects and how those are used to generate web pages is still confusing. I need to revisit this project at a later time.
+
 ## Contribution
 Made with ❤️ by Johnathan Shields 
