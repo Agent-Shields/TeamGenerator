@@ -1,7 +1,8 @@
 const inquirer = require('inquirer');
 const Employee = require('./lib/Employee');
-const generateHTML = require('./src/page-template')
-const generateEmployeeCard = require('./src/page-template')
+const Engineer = require('./lib/Engineer');
+const Manager = require('./lib/Manager');
+const Intern = require('./lib/Intern');
 const fs = require('fs');
 
 
@@ -61,14 +62,15 @@ const questions =
             }
         }
     }
+    
 ];
 
 // ask questions to the user via inquirer
 function promptUser() {
     return inquirer
     .prompt(questions)
-    .then(questionsData => {
-        let employee = new Employee(questionsData.employeeName, questionsData.employeeID, questionsData.employeeEmail, questionsData.employeeRole);
+    .then(employeeData => {
+        let employee = new Employee(employeeData.employeeName, employeeData.employeeID, employeeData.employeeEmail, employeeData.employeeRole);
         employee.getName();
         employee.getID();
         employee.getEmail();
@@ -76,12 +78,10 @@ function promptUser() {
     })
 };
 
-// var questionsAnswers = {};
-
 // TODO: Create function to write HTML file to dist
-const writeFile = (questionsData) => {
+const writeFile = (employeeData) => {
     return new Promise((resolve, reject) => {
-        fs.writeFile('./dist/index.html', generateEmployeeCard(questionsData), err => {
+        fs.writeFile('./dist/index.html', employeeData, err => {
         if (err) {
             reject(err);
             return;
@@ -97,6 +97,6 @@ const writeFile = (questionsData) => {
 
 // starts asking questions upon node index.js invokation 
 promptUser()
-    // .then(writeFileResponse => {
-    //     return writeFile()
-    // });
+    .then(writeFileResponse => {
+        return writeFile()
+    });

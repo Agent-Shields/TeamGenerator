@@ -1,8 +1,5 @@
-module.exports = generateEmployeeCard;
-module.exports = generateHTML;
-
 // create employee card
-const generateEmployeeCard = (questionsData) => {
+const generateEmployeeCard = () => {
 return `
 <div class="card">
     <div class="header bg-primary">
@@ -20,27 +17,55 @@ return `
 }
 
 // layout HTML structure
-const generateHTML = () =>{
-return `
-<!DOCTYPE html>
-<html lang="en">
+// const generateStructure = () =>{
+// return `
+// <!DOCTYPE html>
+// <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Team Generator</title>
-</head>
+// <head>
+//     <meta charset="UTF-8">
+//     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+//     <title>Team Generator</title>
+// </head>
 
-<body>
-    <header>
-        <div>
-            <h1>My Team</h1>
-        </div>
-    </header>
-    <main class="container">
-    </main>
-</body>
-</html>
+// <body>
+//     <header>
+//         <div>
+//             <h1>My Team</h1>
+//         </div>
+//     </header>
+//     <main class="container">
+//     </main>
+// </body>
+// </html>
+// `
+// }
+
+module.exports = employeeData => {
+    console.log(employeeData);
+
+    return `
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Team Generator</title>
+    </head>
+
+    <body>
+        <header>
+            <div>
+                <h1>My Team</h1>
+            </div>
+        </header>
+        <main class="container">
+            ${generateEmployeeCard()}
+        </main>
+    </body>
+    </html>
 `
 }
